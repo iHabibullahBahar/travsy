@@ -1,0 +1,196 @@
+{
+    "onboardingScreenTexts": "Onboarding Screen Texts",
+    "onboardingTitle1": "Know What You Eat",
+    "onboardingDescription1": "Get insights on your nutritional habits with \ndetailed statistics.",
+    "onboardingTitle2": "Track Your Diet",
+    "onboardingDescription2": "Keep track of your daily food intake and \nget personalized recommendations.",
+    "onboardingTitle3": "Get Personalized Recommendations",
+    "onboardingDescription3": "Get personalized recommendations based on \nyour dietary preferences and health goals.",
+
+    "signUpScreenTexts": "Sign Up and sign in Screen Texts",
+    "signUpTitle": "Welcome To ",
+    "signUpDescription": "Hi there, It’s always great to see new faces. Let’s get started!",
+    "loginTitle": "Welcome Back",
+    "loginDescription": "Hi there, Welcome back. Let’s get you logged in.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "invalidEmail": "Please enter a valid email address",
+    "invalidPassword": "Password must be at least 6 characters long",
+    "forgotPassword": "Forgot Password?",
+    "dontHaveAccount": "Don’t have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "agreementText": "I’ve read and agree with the terms of service & Privacy Policy.",
+
+    "forgotPasswordScreenTexts": "Forgot Password Screen Texts",
+    "forgotPasswordTitle": "Forgot Password",
+    "forgotPasswordDescription": "Enter your email address and we’ll send you a link to reset your password.",
+
+    "otpScreenTexts": "OTP Screen Texts",
+    "otpTitle": "OTP Verification",
+    "otpDescription": "Enter the 6-digit code sent to your email address.",
+    "didntReceiveOtp": "Didn’t receive the code?",
+    "dontHaveAccountOtp": "Don’t have an account?",
+
+    "infoScreenTexts": "Info Screen Texts",
+    "dietaryAppbarTitle": "Dietary Requirements",
+    "dietaryTitle1": "Dietary ",
+    "dietaryTitle2": "Requirements",
+    "dietaryDescription": "Select all those that apply to you!",
+    "genderAppbarTitle": "Set your sex",
+    "genderTitle1": "What is your ",
+    "genderTitle2": "Sex?",
+    "genderDescription": "We will use this data to give you a better service",
+    "male": "Male",
+    "female": "Female",
+    "ageAppbarTitle": "Set Your Age",
+    "ageTitle1": "What is your ",
+    "ageTitle2": "Age?",
+    "ageDescription": "We will use this data to give you a better service",
+    "pickYourBirthday": "Pick Your Birthday",
+    "tallAppbarTitle": "Set Your Height",
+    "tallTitle1": "How ",
+    "tallTitle2": "tall ",
+    "tallTitle3": "are You?",
+    "tallDescription": "We will use this data to give you a better service",
+    "metric": "Metric",
+    "imperial": "Imperial",
+    "weightAppbarTitle": "Set Your Weight",
+    "weightTitle1": "What is your ",
+    "weightTitle2": "Weight?",
+    "heightAppbarTitle": "Set Your Height",
+    "weightDescription": "We will use this data to give you a better service",
+    "activityAppbarTitle": "Select Your Activity",
+    "activityTitle1": "Daily Activity ",
+    "activityTitle2": "Levels",
+    "activityDescription": "Select the one that applies to you!",
+    "sedentary": "Sedentary",
+    "moderatelyActive": "Moderately Active",
+    "veryActive": "Very Active",
+    "extraActive": "Extra Active",
+    "goalAppbarTitle": "Select Your Goal",
+
+    "goalTitle1": "Set Your ",
+    "goalTitle2": "Goals",
+    "looseWeight": "Loose Weight",
+    "maintain": "Maintain",
+    "gainMuscle": "Gain Muscle",
+    "goalDescription": "Select the one that applies to you!",
+    "mealAppbarTitle": "Select Your Meal",
+    "mealTitle1": "Meal ",
+    "mealTitle2": "Structure",
+    "mealDescription": "Select the one that applies to you!",
+    "meal1": "2 Meals + 1 Snack",
+    "meal2": "2 Meals + 2 Snacks",
+    "meal3": "3 Meals + 1 Snack",
+    "meal4": "3 Meals + 2 Snacks",
+
+
+    "dataPreparingScreenTexts": "Data Preparing Screen Texts",
+    "dataPreparingTitle": "Preparing your service",
+    "dataPreparingDescription": "We are preparing your data. Please wait...",
+
+    "homeScreenTexts": "Home Screen Texts",
+    "caloryGoal": "Calory Goal",
+    "proteinGoal": "Protein Goal",
+    "outOf": "out of",
+    "todaysMeal": "Today's Meal",
+    "calory": "Calory",
+    "protein": "Protein",
+    "notLoving": "Not loving the meal?",
+    "gram": "g",
+    "kcal": "kcal",
+    "carb": "Carb",
+    "fat": "Fat",
+    "ingredients": "Ingredients",
+    "servings": "Serving",
+    "methods": "Method",
+
+
+    "mealSwapingScreenTexts": "Meal Swaping Screen Texts",
+    "mealSwapingAppBarTitle": "Swap Your Recipe",
+    "mealSwapingSearchPlaceholder": "Search your recipe",
+    "showFavouriteRecipe": "Show My Favourite Recipes",
+    "wantToPickIt" : "Want to pick it?",
+
+    "favoriteScreenTexts": "Favourite Screen Texts",
+    "favoriteAppBarTitle": "Your Favourite Meals!",
+
+
+    "recipeDetailScreenTexts": "Recipe Detail Screen Texts",
+    "recipeDetailAppBarTitle": "Recipe Detail",
+
+    "shoppingListScreenTexts": "Shopping List Screen Texts",
+    "shoppingListAppBarTitle": "Your Shopping List",
+    "shoppingSubTitle": "Have a close look at what you need to buy!",
+
+    "profileScreenTexts": "Profile Screen Texts",
+    "profile": "Profile",
+    "subscription": "Subscription",
+    "referralCode": "Your referral code: ",
+    "dietaryRequirements": "Dietary Requirements",
+    "mealStructure": "Meal Structure",
+    "setYourGoal": "Set Your Goal",
+    "setYourActivityLevel": "Activity Level",
+    "age": "Age",
+    "height": "Height",
+    "weight": "Weight",
+    "name": "Name",
+    "yourInformation": "Your Information",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "buttons": "Buttons",
+    "buttonSkip": "Skip",
+    "buttonStart": "Start",
+    "buttonLogin": "Login",
+    "buttonSignUp": "Sign Up",
+    "buttonCancel": "Cancel",
+    "buttonResetPassword": "Reset Password",
+    "buttonContinueWith": "Continue with",
+    "buttonOtpResend": "Resend OTP",
+    "buttonSubmit": "Submit",
+    "buttonPayNow": "Pay Now",
+    "buttonSwap": "Swap",
+    "buttonPick" : "Pick it",
+    "buttonAddToFav" : "Add this to my favourites",
+    "buttonRemoveFromFav" : "Remove this from my favourites",
+    "buttonSwapMeal": "Swap this meal",
+    "buttonLogout": "Log Out",
+    "buttonResetPassword": "Reset",
+    "buttonSwapThisMeal": "Swap this meal",
+    "buttonUpdate": "Update",
+
+
+
+    "buttonContinue": "Continue",
+    "buttonResend": "Resend",
+    "buttonNext": "Next",
+    "buttonDone": "Done",
+    "buttonRetype": "Retype",
+    "buttonConfirm": "Confirm",
+    "buttonSignIn": "Sign In",
+    "buttonAgree": "Agree",
+    "buttonSeeAll": "See All"
+}
