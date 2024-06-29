@@ -125,21 +125,22 @@ const zPrimaryGradientTopToBottom = LinearGradient(
   end: Alignment.bottomCenter,
 );
 const zPrimaryGradientLeftToRight = LinearGradient(
-  colors: [Color(0xFFFF6654), Color(0xFFEF7922)],
+  colors: [Color(0xFF158CFF), Color(0xFF158CFF)],
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,
 );
 //Colors
-const zPrimaryColor = Color(0xFFEF7922);
-const zSecondaryColor = Color(0xFF132128);
+const zPrimaryColor = Color(0xFF158CFF);
+const zSecondaryColor = Color(0xFFFFBD59);
+const zAccentColor = Color(0xFF7ED957);
 const zWhiteColor = Color(0xFFFFFFFF);
 const zBlackColor = Color(0xFF000000);
 
 //Text Colors
 const zTextColor = Color(0xFF000000);
 const zTextColorLight = Color(0xFFFFFFFF);
-const zTextColorPrimary = Color(0xFFF24E1E);
+const zTextColorPrimary = Color(0xFF158CFF);
 
 //Background Colors
-const zBackgroundColor = Color(0xFFFFFFFF);
+const zBackgroundColor = Color(0xFF0f0f1f3);
 //const zBackgroundColor = Colors.yellow;

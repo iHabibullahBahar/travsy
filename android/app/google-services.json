@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "883521084883",
+    "project_id": "travsy-ai",
+    "storage_bucket": "travsy-ai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883521084883:android:0ce42d3039cd393e9a6326",
+        "android_client_info": {
+          "package_name": "com.travsy.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWRbpjLffQ2CWHQtXF512l8H-DyZ-di4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

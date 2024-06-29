@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:travsy/src/common/services/custom_snackbar_service.dart';
 import 'package:travsy/src/common/widgets/custom_button_with_icon.dart';
 import 'package:travsy/src/common/widgets/custom_shimmer_button.dart';
 import 'package:travsy/src/features/profile/controllers/profile_image_update_controller.dart';
@@ -60,7 +59,7 @@ class _ProfileImageEditScreenState extends State<ProfileImageEditScreen> {
                         ///Uploaded profile picture will be shown here
                         child: CircleAvatar(
                           radius: 60,
-                          backgroundColor: zPrimaryColor.withOpacity(0.8),
+                          backgroundColor: zGraySwatch.shade300,
                           child: Container(
                             height: 120,
                             width: 120,
@@ -112,7 +111,7 @@ class _ProfileImageEditScreenState extends State<ProfileImageEditScreen> {
                           height: 40,
                           width: 40,
                           decoration: BoxDecoration(
-                            color: zPrimaryColor.withOpacity(0.8),
+                            color: zGraySwatch,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: const Icon(
@@ -144,12 +143,8 @@ class _ProfileImageEditScreenState extends State<ProfileImageEditScreen> {
               return CustomButtonWithIcon(
                 title: "Update",
                 onPressed: () async {
-                  if (await ProfilePictureUploadController.instance
-                      .updatePhoto()) {
-                    CustomSnackBarService().showSuccessSnackBar(
-                        message: "Profile picture updated successfully");
-                    Navigator.pop(context);
-                  }
+                  await ProfilePictureUploadController.instance.updatePhoto();
+                  Get.back();
                 },
                 icon: Icons.arrow_forward_ios,
               );

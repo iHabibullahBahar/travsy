@@ -2,6 +2,9 @@ const zAppDomain = 'https://api.incheckfit.com/';
 const zApiDomain = 'https://api.incheckfit.com/';
 const zWebDomain = 'https://www.incheckfit.com/';
 
+const zUpdateProfilePhotoEndPoint = 'update_profile_photo';
+const zUpdateNameEndPoint = 'update_name';
+
 const zSignUpEndpoint = 'signup';
 const zSignInEndpoint = 'signin';
 const zSocialSignInEndpoint = 'signsso';

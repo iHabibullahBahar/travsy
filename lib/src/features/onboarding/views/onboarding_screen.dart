@@ -47,6 +47,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: zBackgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -60,8 +61,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ? const SizedBox(
                           height: 14,
                         )
-                      : TextButton(
-                          onPressed: () {
+                      : InkWell(
+                          onTap: () {
                             setState(() {
                               progress = 1;
                               DynamicComponents.zCustomCircularButtonIndex = 2;
@@ -70,7 +71,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           child: Text(
                             AppLocalizations.of(context)!.buttonSkip,
                             style: const TextStyle(
-                              fontSize: Dimensions.fontSizeDefault,
+                              fontSize: 14,
                               color: zPrimaryColor,
                             ),
                           ),
@@ -89,8 +90,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           onboardingList[
                                   DynamicComponents.zCustomCircularButtonIndex]
                               .image,
-                          height: 250,
-                          width: 250,
+                          height: 150,
                         ),
                         const Gap(60),
                         Text(
@@ -98,19 +98,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   DynamicComponents.zCustomCircularButtonIndex]
                               .title,
                           style: const TextStyle(
-                            fontSize: Dimensions.fontSizeLarge,
-                            fontStyle: FontStyle.italic,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const Gap(20),
+                        const Gap(10),
                         Text(
                           onboardingList[
                                   DynamicComponents.zCustomCircularButtonIndex]
                               .description,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                            fontSize: Dimensions.fontSizeDefault,
+                            fontSize: 14,
                           ),
                         ),
                       ],

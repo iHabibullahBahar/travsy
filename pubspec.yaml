@@ -2,9 +2,9 @@ name: travsy
 description: "Description"
 publish_to: 'none'
 maintainer: "Habibullah Bahar <https://github.com/iHabibullahBahar>"
-repository: https://github.com/iHabibullahBahar/project_heal_app.git
+repository: https://github.com/iHabibullahBahar/travsy_ai_app.git
 
-version: 1.0.0+7
+version: 1.0.0+1
 
 environment:
   sdk: '>=3.2.6 <4.0.0'
@@ -14,8 +14,6 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   get: ^4.6.6
-  flutter_localization: ^0.2.0
-  intl: ^0.18.1
   gap: ^3.0.1
   intro_screen_onboarding_flutter: ^1.0.0
   pinput: ^4.0.0
@@ -34,6 +32,9 @@ dependencies:
   percent_indicator: ^4.2.3
   loading_indicator: ^3.1.1
   wheel_slider: ^1.2.1
+  firebase_auth: ^4.17.8
+  google_sign_in: ^6.2.1
+  flutter_localization: ^0.2.0
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:travsy/src/utils/colors.dart';
 import 'package:travsy/src/utils/dimensions.dart';
 
@@ -22,18 +21,17 @@ class AuthHeaderWidget extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: 24,
-            fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.w600,
-            color: zTextColor,
+            fontWeight: FontWeight.w700,
+            color: zPrimaryColor,
           ),
         ),
-        Gap(10),
         Text(
           description,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: Dimensions.fontSizeDefault,
-            color: zTextColor,
+            color: zTextColorLight,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ],

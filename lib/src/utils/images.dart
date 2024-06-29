@@ -1,13 +1,9 @@
 const zAppLogo = 'assets/logos/app_logo.png';
-
+const zTextLogo = 'assets/logos/text_logo.png';
 //Onboarding Images
 const zOnboardingImage1 = 'assets/images/onboarding_1.png';
 const zOnboardingImage2 = 'assets/images/onboarding_2.png';
 const zOnboardingImage3 = 'assets/images/onboarding_3.png';
-
-const zOnboardingBackground1 = 'assets/images/onboarding_bg1.png';
-const zOnboardingBackground2 = 'assets/images/onboarding_bg2.png';
-const zOnboardingBackground3 = 'assets/images/onboarding_bg3.png';
 
 const zEmailIcon = 'assets/icons/email_icon.png';
 const zGoogleIcon = 'assets/icons/google_icon.png';
@@ -18,9 +14,9 @@ const zErrorRecipeImage = 'assets/images/recipe_error_image.jpeg';
 
 ///Navigation Images
 const zHomeIcon = 'assets/icons/home_icon.png';
-const zRecipesIcon = 'assets/icons/recipes_icon.png';
-const zShoppingIcon = 'assets/icons/shopping_icon.png';
 const zProfileIcon = 'assets/icons/profile_icon.png';
+const zChatIcon = 'assets/icons/chat_icon.png';
+const zFeedIcon = 'assets/icons/feed_icon.png';
 const zNavigationHorizontalBar = 'assets/icons/navigation_hori_bar.png';
 const zNotificationIcon = 'assets/icons/notification_icon.png';
 
@@ -68,7 +64,7 @@ const zMaleImage = 'assets/images/male_image.png';
 const zFemaleImage = 'assets/images/female_image.png';
 
 ///Profile
-const zProfileGradientIcon = 'assets/icons/profile_gradient_icon.png';
+const zProfileGradientIcon = 'assets/icons/profile_icon.png';
 const zSubscriptionIcon = 'assets/icons/subscription_icon.png';
 const zEditIcon = 'assets/icons/edit_icon.png';
 const zProfileIcon1 = 'assets/icons/profile_icon_1.png';

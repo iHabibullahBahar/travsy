@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:travsy/global.dart';
 import 'package:travsy/src/features/auth/views/sign_in_screen.dart';
 import 'package:travsy/src/features/navigation_bar/views/navigation_bar_screen.dart';
 import 'package:travsy/src/features/onboarding/views/onboarding_screen.dart';
+import 'package:travsy/src/utils/app_constants.dart';
 import 'package:travsy/src/utils/colors.dart';
 import 'package:travsy/src/utils/images.dart';
 
@@ -27,56 +29,62 @@ class _SplashScreenState extends State<SplashScreen> {
       } else {
         Get.offAll(() => NavigationBarScreen());
       }
-      // GlobalStorage.instance.isNotFirstTime == false
-      //     ? Get.offAll(() => OnboardingScreen())
-      //     : GlobalStorage.instance.isLogged == false
-      //         ? Get.offAll(() => SignInScreen())
-      //         : AuthController.instance.validateUser();
-      // Get.offAll(() => GlobalStorage.instance.isNotFirstTime == false
-      //     ? OnboardingScreen()
-      //     : !GlobalStorage.instance.isLogged
-      //         ? SignInScreen()
-      //         : NavigationBarScreen());
+      GlobalStorage.instance.isNotFirstTime == false
+          ? Get.offAll(() => OnboardingScreen())
+          : GlobalStorage.instance.isLogged == false
+              ? Get.offAll(() => SignInScreen())
+              : Get.offAll(() => NavigationBarScreen());
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          color: zWhiteColor,
+      bottomNavigationBar: SafeArea(
+        minimum: const EdgeInsets.only(
+          bottom: 20,
         ),
-        child: Stack(
-          alignment: Alignment.center,
+        child: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircularProgressIndicator(
+                color: zPrimaryColor,
+              ),
+            ],
+          ),
+        ),
+      ),
+      body: SafeArea(
+        child: ListView(
           children: [
-            // Column(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     const Text(
-            //       zAppName,
-            //       style: TextStyle(
-            //         fontSize: 35,
-            //         color: zBlackColor,
-            //         fontWeight: FontWeight.bold,
-            //         fontStyle: FontStyle.italic,
-            //       ),
-            //     ),
-            //   ],
-            // ),
-            Image.asset(
-              zAppLogo,
-              height: 200,
-              width: 200,
-            ),
-            const Positioned(
-              bottom: 0,
-              child: SafeArea(
-                minimum: EdgeInsets.only(bottom: 20),
-                child: CircularProgressIndicator(
-                  color: zPrimaryColor,
+            Container(
+              height: Get.height * 0.8,
+              child: Align(
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      zAppLogo,
+                      height: 100,
+                    ),
+                    Gap(10),
+                    Text(
+                      zAppName,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Make your travel easy and fun!",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: zGraySwatch[500],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

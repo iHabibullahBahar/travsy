@@ -25,7 +25,7 @@ class CustomInputField extends StatefulWidget {
     required this.controller,
     this.onChanged,
     this.onDone,
-    this.radius = Dimensions.zButtonRadiusLarge,
+    this.radius = 16,
     this.contentPaddingVertical = 20,
     this.contentPaddingHorizontal = Dimensions.zDefaultPadding,
   });
@@ -50,7 +50,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
           style: const TextStyle(color: zTextColor),
           decoration: InputDecoration(
             filled: true,
-            fillColor: zWhiteColor,
+            fillColor: zBackgroundColor.withOpacity(0),
             suffixIcon: Padding(
               padding: const EdgeInsets.only(
                 right: Dimensions.paddingSizeLarge,
@@ -87,7 +87,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.radius),
               borderSide: BorderSide(
-                color: zGraySwatch[50]!,
+                color: zGraySwatch[200]!,
                 width: 1,
               ),
             ),
@@ -96,7 +96,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.radius),
               borderSide: BorderSide(
-                color: zGraySwatch[100]!,
+                color: zGraySwatch[200]!,
                 width: 1,
               ),
             ),

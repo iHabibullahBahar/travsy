@@ -1,4 +1,4 @@
-package com.travsy.travsy
+package com.travsy.app
 
 import io.flutter.embedding.android.FlutterActivity
 

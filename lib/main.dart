@@ -1,16 +1,17 @@
 import 'package:device_frame/device_frame.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:travsy/global.dart';
-import 'package:travsy/src/features/splash/view/splash_screen.dart';
+import 'package:travsy/src/features/navigation_bar/views/navigation_bar_screen.dart';
 import 'package:travsy/src/utils/app_constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   // try {
   //   if (!kIsWeb) {
   //     OneSignal.initialize("");
@@ -74,7 +75,7 @@ class MyApp extends StatelessWidget {
       //   );
       // },
       //home: NavigationBarScreen(),
-      home: SplashScreen(),
+      home: NavigationBarScreen(),
       //home: OnboardingScreen(),
       //home: NotificationScreen(),
       ///home: InformationScreen(),
@@ -87,7 +88,7 @@ class MyApp extends StatelessWidget {
       ],
       //Set the default locale.
       locale: const Locale('en', 'US'),
-      localizationsDelegates: const [
+      localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

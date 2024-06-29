@@ -1,4 +1,4 @@
-const String zAppName = 'INCHECK';
+const String zAppName = 'Travsy AI';
 const String zAppFontFamily = 'Montserrat';
 
 // "onboardingTitle1": "Know What You Eat",
@@ -8,15 +8,15 @@ const String zAppFontFamily = 'Montserrat';
 // "onboardingTitle3": "Get Personalized Recommendations",
 // "onboardingDescription3": "Get personalized recommendations based on \nyour dietary preferences and health goals.",
 //write them as constants
-const String zOnboardingTitle1 = 'Know What You Eat';
+const String zOnboardingTitle1 = 'Create your trip plan';
 const String zOnboardingDescription1 =
-    'Get insights on your nutritional habits with \ndetailed statistics.';
-const String zOnboardingTitle2 = 'Track Your Diet';
+    'You can create your trip plan  without any hassle using our app.';
+const String zOnboardingTitle2 = 'Customize your trip plan';
 const String zOnboardingDescription2 =
-    'Keep track of your daily food intake and \nget personalized recommendations.';
-const String zOnboardingTitle3 = 'Live Healthy & Great';
+    'You can customize your trip plan according to your needs.';
+const String zOnboardingTitle3 = 'Share your trip plan';
 const String zOnboardingDescription3 =
-    'Get personalized recommendations based on \nyour dietary preferences and health goals.';
+    'You can share your trip plan with your friends and family.';
 
 const zDietText1 = 'Gluten Free';
 const zDietText2 = 'Vegan';

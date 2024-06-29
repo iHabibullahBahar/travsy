@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:travsy/src/common/contollers/common_controller.dart';
 import 'package:travsy/src/features/auth/controllers/auth_controller.dart';
+import 'package:travsy/src/features/chat/views/chat_screen.dart';
 import 'package:travsy/src/features/home/controllers/home_controller.dart';
 import 'package:travsy/src/features/home/views/home_screen.dart';
 import 'package:travsy/src/features/profile/controllers/profile_controller.dart';
@@ -19,12 +20,7 @@ class NavigationBarScreen extends StatefulWidget {
 }
 
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
-  List<dynamic> selectedIcons = [
-    zHomeIcon,
-    zRecipesIcon,
-    zShoppingIcon,
-    zProfileIcon
-  ];
+  List<dynamic> selectedIcons = [zHomeIcon, zFeedIcon, zChatIcon, zProfileIcon];
 
   @override
   void initState() {
@@ -32,6 +28,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
     Get.put(CommonController());
     //Get.put(ProfileController());
     Get.put(HomeController());
+    Get.put(ProfileController());
 
     //Get.put(InformationController());
     Get.lazyPut(() => AuthController());
@@ -40,12 +37,17 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
+      backgroundColor: zGraySwatch[50],
       body: Obx(() {
         return IndexedStack(
           index: CommonController.instance.selectedNavigationIndex.value,
-          children: [HomeScreen(), HomeScreen(), HomeScreen(), ProfileScreen()],
+          children: [
+            HomeScreen(),
+            HomeScreen(),
+            ChatScreen(),
+            ProfileScreen(),
+          ],
         );
       }),
       bottomNavigationBar: Obx(() {
@@ -61,7 +63,8 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
             child: Container(
               height: 70,
               decoration: BoxDecoration(
-                gradient: zPrimaryGradientLeftToRight,
+                // gradient: zPrimaryGradientLeftToRight,
+                color: zWhiteColor,
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Row(
@@ -95,6 +98,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
                           Image.asset(
                             selectedIcons[index],
                             height: 30,
+                            color: zPrimaryColor,
                           ),
                           const Gap(15),
                           if (CommonController
@@ -103,6 +107,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
                             Image.asset(
                               zNavigationHorizontalBar,
                               height: 5,
+                              color: zPrimaryColor,
                             ),
                           if (CommonController
                                   .instance.selectedNavigationIndex.value !=

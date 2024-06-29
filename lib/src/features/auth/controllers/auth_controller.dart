@@ -1,16 +1,16 @@
 import 'dart:convert';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:travsy/global.dart';
 import 'package:travsy/src/common/contollers/common_controller.dart';
 import 'package:travsy/src/common/contollers/local_storage_controller.dart';
 import 'package:travsy/src/common/services/custom_snackbar_service.dart';
 import 'package:travsy/src/features/auth/views/sign_in_screen.dart';
-import 'package:travsy/src/features/information/controllers/information_controller.dart';
-import 'package:travsy/src/features/information/views/information_screen.dart';
 import 'package:travsy/src/features/navigation_bar/views/navigation_bar_screen.dart';
 import 'package:travsy/src/features/profile/controllers/profile_controller.dart';
 import 'package:travsy/src/features/subscription/views/subscription_screen.dart';
@@ -114,7 +114,6 @@ class AuthController extends GetxController {
         GlobalStorage.instance.isLogged = true;
         emailController.clear();
         passwordController.clear();
-        await validateUser();
         isSignInLoading.value = false;
         return true;
       } else {
@@ -131,6 +130,57 @@ class AuthController extends GetxController {
   }
 
   ///Google Sign In
+  Future<bool> signInWithGoogle() async {
+    try {
+      // Trigger the Google Sign-In flow
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      // Get the GoogleSignInAuthentication object
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser!.authentication;
+
+      // Create a new credential using the Google Sign-In authentication
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+      // Sign in to Firebase with the credential
+      final UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+
+      // Get the Firebase user
+      final User? user = userCredential.user;
+
+      // Print Firebase ID
+      print('Firebase ID: ${user!.uid}');
+
+      // Print other user details
+      print('Email: ${user.email}');
+      print('Display Name: ${user.displayName}');
+      print('Photo URL: ${user.photoURL}');
+
+      await LocalStorageController.instance
+          .setString(zUserFullName, user.displayName!);
+
+      var token = await TokenMaker.instance.secureAPI(user.email!);
+
+      var certainty = token['certainty'];
+      var security = token['security'];
+
+      await signInWithSSO(
+          email: user.email!,
+          firebaseId: user.uid,
+          certainty: certainty,
+          security: security);
+
+      ///TODO: Need to add the functionality to save the user details in the database
+
+      return true;
+    } catch (e) {
+      print('Error signing in with Google: $e');
+      return false;
+    }
+  }
 
   Future<bool> signInWithSSO(
       {required String email,
@@ -138,47 +188,9 @@ class AuthController extends GetxController {
       required String certainty,
       required String security}) async {
     try {
-      var requestBody = {
-        "email": email,
-        "firebase_id": firebaseId,
-        "certainty": certainty,
-        "security": security,
-      };
       isSignInLoading.value = true;
-      ApiServices.instance
-          .getResponse(
-        requestBody: requestBody,
-        endpoint: zSocialSignInEndpoint,
-      )
-          .then((response) async {
-        var decoded = jsonDecode(response.body);
-        if (response.statusCode >= 200 && response.statusCode < 300) {
-          await LocalStorageController.instance
-              .setString(zAuthToken, decoded['data']['auth_token']);
-          await LocalStorageController.instance
-              .setString(zAuthTokenValidTill, decoded['data']['validity']);
-          LocalStorageController.instance.setBool(zIsLoggedIn, true);
-          GlobalStorage.instance.isLogged = true;
-          emailController.clear();
-          passwordController.clear();
-          isSignInLoading.value = false;
-          await validateUser();
-          return true;
-        } else {
-          if (decoded['success'] == false) {
-            Get.snackbar(
-              'Error',
-              decoded['message'],
-              snackPosition: SnackPosition.BOTTOM,
-              backgroundColor: zErrorSwatch,
-              colorText: zWhiteColor,
-              duration: const Duration(seconds: 2),
-            );
-          }
-          isSignInLoading = false.obs;
-          return false;
-        }
-      });
+      print('Email: $email');
+      print('Firebase ID: $firebaseId');
     } catch (e) {
       isSignInLoading.value = false;
       return false;
@@ -187,56 +199,13 @@ class AuthController extends GetxController {
     return false;
   }
 
-  ///Validate User
-  Future<dynamic> validateUser() async {
-    try {
-      var response = await ApiServices.instance.getResponse(
-        requestBody: {},
-        isAuthToken: true,
-        endpoint: zValidateUserEndpoint,
-      );
-      var decoded = jsonDecode(response.body);
-      if (response.statusCode >= 200 && response.statusCode < 300) {
-        Get.put(ProfileController());
-        await ProfileController.instance.fetchProfile();
-
-        ///Set OneSignal user id
-        ///Here the employee id will saved as Onesignal external user id
-        if (!kIsWeb) {
-          OneSignal.login(
-              ProfileController.instance.profileModel.data!.id!.toString());
-        }
-
-        var redirect = decoded['data']['redirect'];
-        if (redirect == 'input-required') {
-          Get.offAll(() => InformationScreen());
-        } else if (redirect == 'subscription-expired') {
-          Get.offAll(() => SubscriptionScreen());
-        } else if (redirect == 'homepage') {
-          Get.offAll(() => NavigationBarScreen());
-        }
-        return true;
-      } else {
-        if (decoded['success'] == false) {
-          if (decoded['message'] == 'Access token expired!') {
-            CustomSnackBarService().showErrorSnackBar(
-                message: "Session expired. Please login again");
-            await signOut();
-            Get.offAll(() => SignInScreen());
-          } else {
-            CustomSnackBarService().showErrorSnackBar(
-                message: "Something went wrong. Please login again");
-            await signOut();
-            Get.offAll(() => SignInScreen());
-          }
-        }
-        return false;
-      }
-    } catch (e) {
-      print('Error validating user: $e');
-      return false;
-    }
+  ///Apple Sign In
+  Future<bool> signInWithApple() async {
+    ///TODO: Implement Apple Sign In after getting the Apple Developer Account
+    return true;
   }
+
+  ///Validate User
 
   ///Send OTP
   Future<bool> sendOTP(int userId, String email) async {
@@ -291,7 +260,6 @@ class AuthController extends GetxController {
             .setString(zAuthTokenValidTill, decoded['data']['validity']);
         AuthController.instance.otpController.clear();
         LocalStorageController.instance.setBool(zIsLoggedIn, true);
-        validateUser();
         return true;
       } else {
         if (decoded['success'] == false) {
@@ -364,7 +332,6 @@ class AuthController extends GetxController {
       await LocalStorageController.instance.clearInstance(zIsLoggedIn);
       await LocalStorageController.instance.clearInstance(zUserId);
       OneSignal.logout();
-      Get.delete<InformationController>();
       Get.delete<CommonController>();
       Get.offAll(() => const SignInScreen());
     } catch (e) {
