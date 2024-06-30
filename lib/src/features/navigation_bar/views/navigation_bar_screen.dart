@@ -38,7 +38,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: zGraySwatch[50],
+      backgroundColor: zBackgroundColor,
       body: Obx(() {
         return IndexedStack(
           index: CommonController.instance.selectedNavigationIndex.value,

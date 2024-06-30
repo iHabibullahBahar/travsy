@@ -142,5 +142,5 @@ const zTextColorLight = Color(0xFFFFFFFF);
 const zTextColorPrimary = Color(0xFF158CFF);
 
 //Background Colors
-const zBackgroundColor = Color(0xFF0f0f1f3);
+const zBackgroundColor = Color(0xFFf5f5f5);
 //const zBackgroundColor = Colors.yellow;

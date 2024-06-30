@@ -28,7 +28,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
     return Scaffold(
       backgroundColor: zBackgroundColor,
       appBar: AppBar(
-        backgroundColor: zBackgroundColor.withOpacity(0),
+        backgroundColor: zBackgroundColor,
         elevation: 0,
         title: Text(
           'Edit Profile',
