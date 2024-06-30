@@ -1,10 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:travsy/src/features/auth/controllers/auth_controller.dart';
+import 'package:get/get.dart';
 import 'package:travsy/src/features/auth/widgets/social_button.dart';
-import 'package:travsy/src/utils/colors.dart';
+import 'package:travsy/src/features/navigation_bar/views/navigation_bar_screen.dart';
 import 'package:travsy/src/utils/images.dart';
 
 class SocialButtonSectionWidget extends StatelessWidget {
@@ -22,21 +20,22 @@ class SocialButtonSectionWidget extends StatelessWidget {
               icon: zGoogleIcon,
               title: 'Continue with Google',
               onPressed: () async {
-                await AuthController.instance.signInWithGoogle();
+                //await AuthController.instance.signInWithGoogle();
+                Get.offAll(() => NavigationBarScreen());
               },
             ),
-            if (Platform.isIOS) Gap(10),
-            if (Platform.isIOS)
-              SocialButton(
-                title: 'Continue with Apple',
-                backgroundColor: Colors.transparent,
-                textColors: zWhiteColor,
-                borderColor: zPrimaryColor,
-                onPressed: () {
-                  /// TODO Implement Apple Login
-                },
-                icon: zAppleIcon,
-              )
+            // if (Platform.isIOS) Gap(10),
+            // if (Platform.isIOS)
+            //   SocialButton(
+            //     title: 'Continue with Apple',
+            //     backgroundColor: Colors.transparent,
+            //     textColors: zWhiteColor,
+            //     borderColor: zPrimaryColor,
+            //     onPressed: () {
+            //       /// TODO Implement Apple Login
+            //     },
+            //     icon: zAppleIcon,
+            //   )
           ],
         ),
       ],

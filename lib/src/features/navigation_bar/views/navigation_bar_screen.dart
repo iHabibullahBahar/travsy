@@ -8,6 +8,7 @@ import 'package:travsy/src/features/home/controllers/home_controller.dart';
 import 'package:travsy/src/features/home/views/home_screen.dart';
 import 'package:travsy/src/features/profile/controllers/profile_controller.dart';
 import 'package:travsy/src/features/profile/views/profile_screen.dart';
+import 'package:travsy/src/features/trip_feeds/views/trip_feeds_screen.dart';
 import 'package:travsy/src/utils/colors.dart';
 import 'package:travsy/src/utils/dimensions.dart';
 import 'package:travsy/src/utils/images.dart';
@@ -44,7 +45,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
           index: CommonController.instance.selectedNavigationIndex.value,
           children: [
             HomeScreen(),
-            HomeScreen(),
+            TripFeedsScreen(),
             ChatScreen(),
             ProfileScreen(),
           ],
@@ -86,9 +87,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
                       if (index == 0) {
                       } else if (index == 1) {
                       } else if (index == 2) {
-                      } else if (index == 3) {
-                        ProfileController.instance.fetchProfile();
-                      }
+                      } else if (index == 3) {}
                     },
                     child: Container(
                       width: 50,

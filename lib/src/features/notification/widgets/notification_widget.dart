@@ -43,9 +43,8 @@ class NotificationWidget extends StatelessWidget {
                       title,
                       style: TextStyle(
                         color: zTextColor,
-                        fontSize: Dimensions.fontSizeExtraLarge,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic,
                       ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
@@ -68,7 +67,7 @@ class NotificationWidget extends StatelessWidget {
                 description,
                 style: TextStyle(
                   color: zTextColor.withOpacity(0.6),
-                  fontSize: Dimensions.fontSizeDefault,
+                  fontSize: 13,
                 ),
               )
             ],

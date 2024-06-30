@@ -12,8 +12,6 @@ import 'package:travsy/src/common/contollers/local_storage_controller.dart';
 import 'package:travsy/src/common/services/custom_snackbar_service.dart';
 import 'package:travsy/src/features/auth/views/sign_in_screen.dart';
 import 'package:travsy/src/features/navigation_bar/views/navigation_bar_screen.dart';
-import 'package:travsy/src/features/profile/controllers/profile_controller.dart';
-import 'package:travsy/src/features/subscription/views/subscription_screen.dart';
 import 'package:travsy/src/helper/api_services.dart';
 import 'package:travsy/src/helper/token_maker.dart';
 import 'package:travsy/src/utils/api_urls.dart';
@@ -156,22 +154,25 @@ class AuthController extends GetxController {
 
       // Print other user details
       print('Email: ${user.email}');
+
       print('Display Name: ${user.displayName}');
       print('Photo URL: ${user.photoURL}');
+
+      Get.offAll(() => NavigationBarScreen());
 
       await LocalStorageController.instance
           .setString(zUserFullName, user.displayName!);
 
-      var token = await TokenMaker.instance.secureAPI(user.email!);
-
-      var certainty = token['certainty'];
-      var security = token['security'];
+      // var token = await TokenMaker.instance.secureAPI(user.email!);
+      //
+      // var certainty = token['certainty'];
+      // var security = token['security'];
 
       await signInWithSSO(
           email: user.email!,
           firebaseId: user.uid,
-          certainty: certainty,
-          security: security);
+          certainty: "",
+          security: "security");
 
       ///TODO: Need to add the functionality to save the user details in the database
 

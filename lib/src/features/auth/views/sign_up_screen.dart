@@ -8,13 +8,11 @@ import 'package:travsy/src/common/services/custom_snackbar_service.dart';
 import 'package:travsy/src/common/widgets/custom_button_with_icon.dart';
 import 'package:travsy/src/common/widgets/custom_input_field.dart';
 import 'package:travsy/src/common/widgets/custom_shimmer_button.dart';
-import 'package:travsy/src/common/widgets/web_view_page.dart';
 import 'package:travsy/src/features/auth/controllers/auth_controller.dart';
 import 'package:travsy/src/features/auth/views/otp_input_screen.dart';
 import 'package:travsy/src/features/auth/views/sign_in_screen.dart';
 import 'package:travsy/src/features/auth/widgets/auth_header_widget.dart';
 import 'package:travsy/src/helper/data_validator.dart';
-import 'package:travsy/src/utils/api_urls.dart';
 import 'package:travsy/src/utils/app_constants.dart';
 import 'package:travsy/src/utils/colors.dart';
 import 'package:travsy/src/utils/dimensions.dart';
@@ -125,15 +123,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 var authToken = await LocalStorageController
                                     .instance
                                     .getString(zAuthToken);
-                                Get.to(
-                                  () => WebViewPage(
-                                      url: zWebDomain +
-                                          zTermsAndConditionsEndpoint,
-                                      authToken: authToken!,
-                                      pageName: "",
-                                      method: "GET",
-                                      title: "Terms and Conditions"),
-                                );
+                                // Get.to(
+                                //   () => WebViewPage(
+                                //       url: zWebDomain +
+                                //           zTermsAndConditionsEndpoint,
+                                //       authToken: authToken!,
+                                //       pageName: "",
+                                //       method: "GET",
+                                //       title: "Terms and Conditions"),
+                                // );
                               },
                           ),
                           TextSpan(
@@ -153,14 +151,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 var authToken = await LocalStorageController
                                     .instance
                                     .getString(zAuthToken);
-                                Get.to(
-                                  () => WebViewPage(
-                                      url: zWebDomain + zPrivacyPolicyEndpoint,
-                                      authToken: authToken!,
-                                      pageName: "",
-                                      method: "GET",
-                                      title: "Privacy Policy"),
-                                );
+                                // Get.to(
+                                //   () => WebViewPage(
+                                //       url: zWebDomain + zPrivacyPolicyEndpoint,
+                                //       authToken: authToken!,
+                                //       pageName: "",
+                                //       method: "GET",
+                                //       title: "Privacy Policy"),
+                                // );
                               },
                           ),
                         ],

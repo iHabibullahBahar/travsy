@@ -6,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:travsy/global.dart';
-import 'package:travsy/src/features/navigation_bar/views/navigation_bar_screen.dart';
+import 'package:travsy/src/features/onboarding/views/onboarding_screen.dart';
 import 'package:travsy/src/utils/app_constants.dart';
 
 void main() async {
@@ -75,8 +75,8 @@ class MyApp extends StatelessWidget {
       //   );
       // },
       //home: NavigationBarScreen(),
-      home: NavigationBarScreen(),
-      //home: OnboardingScreen(),
+      // home: SplashScreen(),
+      home: OnboardingScreen(),
       //home: NotificationScreen(),
       ///home: InformationScreen(),
       //home: SignInScreen(),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:travsy/src/features/notification/controllers/notification_controller.dart';
 import 'package:travsy/src/features/notification/widgets/notification_widget.dart';
@@ -18,16 +17,17 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   void initState() {
     super.initState();
-    NotificationController.instance.fetchNotification(isRefresh: true);
-    scrollController.addListener(() {
-      if (scrollController.position.maxScrollExtent ==
-          scrollController.offset) {
-        NotificationController.instance.isNotificationFetching.value == false
-            ? NotificationController.instance
-                .fetchNotification(isRefresh: false)
-            : null;
-      }
-    });
+    Get.put(NotificationController());
+    // NotificationController.instance.fetchNotification(isRefresh: true);
+    // scrollController.addListener(() {
+    //   if (scrollController.position.maxScrollExtent ==
+    //       scrollController.offset) {
+    //     NotificationController.instance.isNotificationFetching.value == false
+    //         ? NotificationController.instance
+    //             .fetchNotification(isRefresh: false)
+    //         : null;
+    //   }
+    // });
   }
 
   @override
@@ -55,60 +55,66 @@ class _NotificationScreenState extends State<NotificationScreen> {
         child: ListView(
           controller: scrollController,
           children: [
-            Obx(() {
-              if (NotificationController
-                  .instance.isNotificationFetching.value) {
-                return Container(
-                  height: Get.height * 0.7,
-                  child: const Center(
-                    child: CircularProgressIndicator(
-                      color: zPrimaryColor,
-                    ),
-                  ),
-                );
-              } else if (NotificationController
-                      .instance.notificationModel.data!.notifications! ==
-                  []) {
-                return Container(
-                  height: Get.height * 0.7,
-                  child: const Center(
-                    child: Text("No Notification Found"),
-                  ),
-                );
-              } else {
-                return Column(
-                  children: [
-                    for (var notification in NotificationController
-                        .instance.notificationModel.data!.notifications!)
-                      NotificationWidget(
-                        title: notification.title!,
-                        description: notification.subtitle!,
-                        time: notification.timeAgo!,
-                      ),
-                    Obx(() {
-                      if (NotificationController
-                              .instance.isMoreNotificationLoading.value ==
-                          true) {
-                        return Column(
-                          children: [
-                            Gap(10),
-                            const Center(
-                              child: CircularProgressIndicator(
-                                color: zPrimaryColor,
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                          ],
-                        );
-                      } else {
-                        return const SizedBox();
-                      }
-                    })
-                  ],
-                );
-              }
-            }),
-            Gap(Dimensions.zDefaultPadding * 2),
+            for (int i = 0; i < 10; i++)
+              NotificationWidget(
+                title: "You are becoming popular",
+                description: "Hey, your trip plan reached 100 likes.",
+                time: "45 min ago",
+              ),
+            // Obx(() {
+            //   if (NotificationController
+            //       .instance.isNotificationFetching.value) {
+            //     return Container(
+            //       height: Get.height * 0.7,
+            //       child: const Center(
+            //         child: CircularProgressIndicator(
+            //           color: zPrimaryColor,
+            //         ),
+            //       ),
+            //     );
+            //   } else if (NotificationController
+            //           .instance.notificationModel.data!.notifications! ==
+            //       []) {
+            //     return Container(
+            //       height: Get.height * 0.7,
+            //       child: const Center(
+            //         child: Text("No Notification Found"),
+            //       ),
+            //     );
+            //   } else {
+            //     return Column(
+            //       children: [
+            //         // for (var notification in NotificationController
+            //         //     .instance.notificationModel.data!.notifications!)
+            //         NotificationWidget(
+            //           title: "You are becoming popular",
+            //           description: "Hey, your trip plan reached 100 likes.",
+            //           time: "45 min ago",
+            //         ),
+            //         // Obx(() {
+            //         //   if (NotificationController
+            //         //           .instance.isMoreNotificationLoading.value ==
+            //         //       true) {
+            //         //     return Column(
+            //         //       children: [
+            //         //         Gap(10),
+            //         //         const Center(
+            //         //           child: CircularProgressIndicator(
+            //         //             color: zPrimaryColor,
+            //         //           ),
+            //         //         ),
+            //         //         const SizedBox(height: 20),
+            //         //       ],
+            //         //     );
+            //         //   } else {
+            //         //     return const SizedBox();
+            //         //   }
+            //         // })
+            //       ],
+            //     );
+            //   }
+            // }),
+            // Gap(Dimensions.zDefaultPadding * 2),
           ],
         ),
       ),
